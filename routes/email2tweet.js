@@ -149,9 +149,11 @@ function SaveToMongoDB(tweet){
             console.log("Tweets count = " + messages.length);
             console.log("Mongo Connected");
             var collection = db.collection('tweets');
-            for (var i = 0; i < messages.length; i++) { 
-                collection.insert(messages[i], { w: 1 }, function (err, result) {});
+            for (var i = 0; i < messages.length; i++) {
+                collection.insert(messages[i], { w: 1 }, function (err, result) { });
             }
+            //Reset
+            messages = [];
             //console.log("Mongo Disconnected");
         } else {
             return console.dir(err);
